@@ -1,18 +1,22 @@
 import React from 'react';
 import { RickMortyImage } from './RickMortyImage';
-
+import { RickMortyName } from './RickMortyName';
 
 function RickMortyComponent(props) {
     const { rickMortyCharacters } = props;
+    const rickMortyCharactersData = rickMortyCharacters.results;
     return (
-        <>
-        {rickMortyCharacters.map(rickMortyCharacter => {
+        <div>
+        {rickMortyCharactersData.map(rickMortyCharacter => {
             return (
-                <RickMortyImage rickMortyCharacter={rickMortyCharacter} />
+                <div key={rickMortyCharacter.id}>
+                <RickMortyImage rickMortyCharacter={rickMortyCharacter} key={rickMortyCharacter.id + 'c'} />
+                <RickMortyName rickMortyCharacter={rickMortyCharacter} key={rickMortyCharacter.id + 'n'} />
+                </div>
             )
-        })
-        }
-        </>
+        })}
+        
+        </div>
     )
 
 }
