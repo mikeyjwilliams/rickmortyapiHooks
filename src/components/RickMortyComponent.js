@@ -1,12 +1,17 @@
 import React from 'react';
+import { RickMortyImage } from './RickMortyImage';
 
 
 function RickMortyComponent(props) {
-
+    const { rickMortyCharacters } = props;
     return (
         <>
-            <p>Rick &amp; Morty</p>
-
+        {rickMortyCharacters.map(rickMortyCharacter => {
+            return (
+                <RickMortyImage rickMortyCharacter={rickMortyCharacter} />
+            )
+        })
+        }
         </>
     )
 
