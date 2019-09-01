@@ -2,6 +2,7 @@ import React from 'react';
 import { RickMortyImage } from './RickMortyImage';
 import { RickMortyName } from './RickMortyName';
 import { RickMortyLocation } from './RickMortyLocation';
+import { RickMortyStatus } from './RickMortyStatus';
 
 function RickMortyComponent(props) {
     const { rickMortyCharacters } = props;
@@ -14,6 +15,7 @@ function RickMortyComponent(props) {
                 <RickMortyImage rickMortyCharacter={rickMortyCharacter} key={rickMortyCharacter.id + 'c'} />
                 <RickMortyName rickMortyCharacter={rickMortyCharacter} key={rickMortyCharacter.id + 'n'} />
                 <RickMortyLocation rickMortyCharacter={rickMortyCharacter} key={rickMortyCharacter.id + 'l'} />
+                <RickMortyStatus rickMortyCharacter={rickMortyCharacter} key={rickMortyCharacter.id + 's'} />
                 </div>
             )
         })}
