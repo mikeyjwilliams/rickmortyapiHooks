@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {RickApi} from './API/RickApi';
+import {RickMortyTitle }  from './components/RickMortyTitle';
+import RickMortyComponent from './components/RickMortyComponent';
 import './App.css';
 
 function App() {
 
+  const [rickMortyCharacters, setRickMortyCharacters] = useState();
   useEffect( () => {
-    RickApi();
+   RickApi(setRickMortyCharacters);
   }, [])
 
-
+  if(!rickMortyCharacters) return <h2>Loading...</h2>
+  console.log(rickMortyCharacters);
   return (
     <div className="App">
-      <h1>Rick Morty Api</h1>
+      <RickMortyTitle />
+      <RickMortyComponent rickMortyCharacters={rickMortyCharacters} />
     </div>
   );
 }
