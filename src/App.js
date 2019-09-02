@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState, useEffect } from 'react';
 import {RickApi} from './API/RickApi';
 import {RickMortyTitle }  from './components/RickMortyTitle';
