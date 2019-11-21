@@ -1,20 +1,18 @@
-import React from 'react';
-import { RickMortyImage } from './RickMortyImage';
-import { RickMortyName } from './RickMortyName';
-import { RickMortyLocation } from './RickMortyLocation';
-import { RickMortyStatus } from './RickMortyStatus';
+import React, { useState } from 'react';
 import { Container, Row, Col, CardDeck, CardColumns, Card } from 'reactstrap';
 import styled from 'styled-components';
 
 function RickMortyComponent(props) {
 	const { rickMortyCharacters } = props;
-	const rickMortyCharactersData = rickMortyCharacters.results;
+	const [charactersData, setCharactersData] = useState(
+		rickMortyCharacters.results
+	);
 
 	return (
 		//
 		<Container>
 			<RowCustom>
-				{rickMortyCharactersData.map((rickMortyCharacter) => {
+				{charactersData.map((rickMortyCharacter) => {
 					return (
 						<CustomCol md={6} lg={4} xl={3} key={rickMortyCharacter.id}>
 							<CardCustom>
