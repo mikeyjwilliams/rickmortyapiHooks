@@ -21,10 +21,10 @@ function RickMortyComponent(props) {
       </RowCustom>
       <ButtonRow>
         <Col>
-          <Button color='primary' size='lg'>
+          <Button onClick={props.pageBack} color='primary' size='lg'>
             Previous
           </Button>{' '}
-          <Button color='primary' size='lg'>
+          <Button onClick={props.pageForward} color='primary' size='lg'>
             Next
           </Button>
         </Col>

@@ -7,16 +7,33 @@ import './App.css';
 
 function App() {
   const [rickMortyCharacters, setRickMortyCharacters] = useState();
+  const [page, setPage] = useState(1);
   useEffect(() => {
-    RickApi(setRickMortyCharacters);
-  }, []);
+    RickApi(setRickMortyCharacters, page);
+  }, [page]);
+
+  const pageForward = () => {
+    setPage(page + 1);
+  };
+
+  const pageBack = () => {
+    if (page === 0) {
+      setPage(0);
+    } else {
+      setPage(page - 1);
+    }
+  };
 
   if (!rickMortyCharacters) return <h2>Loading...</h2>;
-  console.log(rickMortyCharacters);
+
   return (
     <div className='App'>
       <RickMortyTitle />
-      <RickMortyComponent rickMortyCharacters={rickMortyCharacters} />
+      <RickMortyComponent
+        rickMortyCharacters={rickMortyCharacters}
+        pageBack={pageBack}
+        pageForward={pageForward}
+      />
     </div>
   );
 }
