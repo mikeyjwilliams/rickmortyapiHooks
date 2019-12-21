@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Row,
-  Col,
-  CardDeck,
-  CardColumns,
-  Card,
-  CardText
-} from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import styled from 'styled-components';
 import Character from './Character';
 
@@ -27,6 +19,16 @@ function RickMortyComponent(props) {
           );
         })}
       </RowCustom>
+      <ButtonRow>
+        <Col>
+          <Button color='primary' size='lg'>
+            Previous
+          </Button>{' '}
+          <Button color='primary' size='lg'>
+            Next
+          </Button>
+        </Col>
+      </ButtonRow>
     </Container>
   );
 }
@@ -44,9 +46,7 @@ const RowCustom = styled(Row)`
     flex-wrap: wrap; */
 `;
 
-// const CharacterCard = styled(Card)`
-//   background-color: rgba(226, 106, 153, 0.19);
-//   width: 100%;
-//   display: block;
-//   border: 1px solid red;
-// `;
+const ButtonRow = styled(Row)`
+  margin-bottom: 25px;
+  margin-top: 10px;
+`;
