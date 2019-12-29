@@ -8,7 +8,9 @@ function Character(props) {
     <>
       <CardCustom key={id}>
         <CardImg src={image} alt={name} />
-        <CardText>{name}</CardText>
+        <CardText className={status === `Dead` ? 'gone' : null}>
+          {name}
+        </CardText>
         <CardText>{location.name}</CardText>
         <CardText>{status}</CardText>
       </CardCustom>
